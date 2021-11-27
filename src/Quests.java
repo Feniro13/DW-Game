@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Quests {
@@ -6,8 +7,6 @@ public class Quests {
 
     Characters Clara = new Characters(50, 20);
     Characters Jack = new Characters(80, 50);
-
-    String enemy = Characters.newEnemy();
 
     boolean clara = true;
     boolean jack = true;
@@ -22,13 +21,12 @@ public class Quests {
 
     public void Fighting () {
         lyrics.Fight();
-        Waiter5();
-        System.out.println("                                                     Вам не уйти от предстоящей битвы с врагом!");
+        Waiter3();
+        System.out.println("Орды врага все прибывают, наполняя местные леса страшным воплем и жаждой крови");
         Waiter2();
-        System.out.println("                                                    " + enemy + " все прибывают!");
-        System.out.println("                                                    У вас есть выбор - биться с ними, сдаться в плен, либо бежать!");
-        ans = in.nextLine();
-        if (ans.equals("Бежать")) {
+        System.out.println("        У вас есть выбор - биться с ними, сдаться в плен, либо бежать!");
+        ans = in.nextLine().toLowerCase(Locale.ROOT);
+        if (ans.equals("бежать")) {
             System.out.println("                                                    Хороший выбор! Наверно...");
             int var = (int)(Math.random() * 2);
             if (var == 1) {
@@ -36,22 +34,22 @@ public class Quests {
             }
 
         }
-        if (ans.equals("Сдаться в плен")) {
+        if (ans.equals("сдаться в плен")) {
             Captured();
         }
-        if (ans.equals("Биться")) {
+        if (ans.equals("биться")) {
             System.out.println("Джонни, они на деревьях!");
             Waiter2();
             System.out.println("Враг научился хорошо маскироваться!");
             Waiter2();
-            System.out.println("У вас есть 10 возможных вариантов местонахождения врага! Какие 3 из них вы проверите!?");
-            var1 = (int)(Math.random() * 10);
-            var2 = (int)(Math.random() * 10);
-            var3 = (int)(Math.random() * 10);
+            System.out.println("У вас есть 8 возможных вариантов местонахождения врага! Какие 3 из них вы проверите!?");
+            var1 = (int)(Math.random() * 8);
+            var2 = (int)(Math.random() * 8);
+            var3 = (int)(Math.random() * 8);
             tar1 = in.nextInt();
             tar2 = in.nextInt();
             tar3 = in.nextInt();
-            enemies = (int)(Math.random() * 7);
+            enemies = (int)(Math.random() * 6);
             attempts = 0;
             kol = 0;
             while(kol < enemies) {
@@ -102,19 +100,19 @@ public class Quests {
         Waiter3();
         System.out.println("        К счастью, вы нашли удобную лазейку");
         Waiter2();
-        System.out.println("        Держитесь в полной тишине, как бы ни хотелось кричать!");
+        System.out.println("        Держитесь в полной тишине, как бы ни хотелось кричать!");Waiter2();
         System.out.println("        На вашем пути лежит множество веток, листьев," +
-                " и прочих предметов, которые могут вас выдать!");
-        System.out.println("        Вам необходимо пройти их так, чтобы издать как можно меньше шума!");
-        System.out.println("        (наличие пути спасения не гарантируется)");
-        System.out.println("        Вы начинаете с точки -1");
+                " и прочих предметов, которые могут вас выдать!");Waiter2();
+        System.out.println("        Вам необходимо пройти их так, чтобы издать как можно меньше шума!");Waiter2();
+        System.out.println("        (наличие пути спасения не гарантируется)");Waiter2();
+        System.out.println("        Вы начинаете с точки -1");Waiter2();
         for (int i = 0; i < 15; i++) {
             Way[i] = (int)(Math.random() * 10);
             System.out.print(Way[i] + " ");
         }
         kol = 0;
         Waiter2();
-        System.out.println("Введите перемещение, которое покажется вам самым тихим. Максимальный уровень шума - 50.");
+        System.out.println("Введите координату,перемещение на которую покажется вам самым тихим. Максимальный уровень шума - 30.");Waiter2();
         System.out.println("Перемещаться можно на любое расстояние от 1 до 3 клеток");
         pansw = -1;
         answ = -1;
@@ -129,9 +127,9 @@ public class Quests {
             }
             kol += Way[answ - 1];
             if(kol > 50) {
-                System.out.println("Вас обнаружили!");
-                System.out.println("Больше от них не скроешься!");
-                System.out.println("Вы можете сражаться, или сдаться в плен!");
+                System.out.println("Вас обнаружили!");Waiter2();
+                System.out.println("Больше от них не скроешься!");Waiter2();
+                System.out.println("Вы можете сражаться, или сдаться в плен!");Waiter2();
                 ans = in.nextLine();
                 if (ans.equals("Сражаться")) {
                     Fighting();
@@ -140,7 +138,7 @@ public class Quests {
                 }
             }
         }
-        System.out.println("Вы успешно ушли!");
+        System.out.println("Вы успешно ушли!");Waiter2();
 
     }
 
@@ -213,15 +211,10 @@ public class Quests {
         lyrics.Capture();
         Waiter5();
         System.out.println("Для побега необходимо сломать наручники! ");
-        enemies = (int)(Math.random() * 10);
+        Waiter2();
+        System.out.println("Оковы раскованы!");
         kol = 0;
         attempts = 0;
-        Waiter2();
-        System.out.println("Цепь состоит из случайного числа колец");
-        while(kol < enemies) {
-            attempts++;
-            System.out.println("");
-        }
         var1 = 1;
         var2 = 2;
         var3 = 3;
@@ -263,9 +256,6 @@ public class Quests {
         Waiter5();
         System.out.println("        Вы нашли Тардис, но она разбита! Необходимо время, чтобы ее починить!");
         Waiter2();
-        if (river) {
-            time -= River.IQ;
-        }
         if (jack) {
             time -= Jack.IQ;
         }

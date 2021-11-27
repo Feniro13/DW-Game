@@ -24,28 +24,24 @@ public class Game {
 
     }
     public void mainGame() {
-        quests.Waiter3();
-        planet1.Landscape1();
-        quests.Waiter5();
-        planet1.Landscape2();
-        quests.Waiter5();
-        planet1.Landscape3();
-        quests.Waiter5();
-        planet1.Landscape4();
-        planet1.Landscape5();
-        planet1.Landscape6();
-        planet1.Landscape7();
-        planet1.Landscape8();
+        planet1.Landscape1();Events();quests.Waiter3();
+        planet1.Landscape2();Events();quests.Waiter3();
+        planet1.Landscape3();Events();quests.Waiter3();
+        planet1.Landscape4();Events();quests.Waiter3();
+        planet1.Landscape5();Events();quests.Waiter3();
+        planet1.Landscape6();Events();quests.Waiter3();
+        planet1.Landscape7();Events();quests.Waiter3();
+        planet1.Landscape8();Events();quests.Waiter3();
     }
     public void Events() {
         var = (int)(Math.random() * 3);
-        if (var == 1) {
+        if (var == 0) {
             quests.Fighting();
         }
-        if (var == 2) {
+        if (var == 1) {
             quests.Hiding();
         }
-        if (var == 3) {
+        if (var == 2) {
             quests.Solving();
         }
     }
